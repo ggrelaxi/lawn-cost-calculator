@@ -5,8 +5,11 @@ const concat = require('gulp-concat');
 const sourcemaps = require('gulp-sourcemaps');
 const terser = require('gulp-terser');
 const imagemin = require('gulp-imagemin');
+const minify = require('gulp-minify');
+const rename = require('gulp-rename');
 
 const browserSync = require('browser-sync').create();
+
 
 gulp.task('style', function () {
     return gulp.src('src/style/**/*.scss')
@@ -20,20 +23,18 @@ gulp.task('style', function () {
 });
 
 gulp.task('es', function () {
-    return gulp.src('./src/**/*.js')
-      .pipe(sourcemaps.init())
-      .pipe(terser())
-      .pipe(sourcemaps.write('./'))
-      .pipe(gulp.dest('./build/js'));
+    return gulp.src('src/**/*.js')
+      .pipe(rename({dirname: ''}))
+      .pipe(gulp.dest('./js'));
+
       
  });
 
 gulp.task('imgmin', function () {
       return gulp.src('src/img/**/*')
         .pipe(imagemin())
-        .pipe(gulp.dest('build/img'))
+        .pipe(gulp.dest('build/img'));
     
-      
   });
 
 gulp.task('serve', function () {

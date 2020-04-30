@@ -1,2 +1,127 @@
 @import "mixins.scss";
 @import 'variables.scss';
+
+.container {
+    
+    min-height: 600px;
+    margin: 0 auto;
+    margin-top: 100px;
+    margin-top:50px;
+}
+
+#category-rul-gazon-type .nav-tabs .nav-item {
+    width:50%;
+}
+
+#calc {
+    padding-bottom: 50px;
+}
+
+#calc a {
+    color: green;
+    
+    padding-top:10px;
+}
+
+#calc li a.active {
+    background: #42ca55;
+    color: #fff;
+
+}
+
+.nav-tabs .nav-item {
+    padding: 0px 0px;
+}
+
+input[type="range"] {
+	-webkit-appearance: none;
+	background-color: green;
+	height: 5px;
+}
+
+.table .thead-dark th {
+    background-color: #42ca55;
+    border-color: #42ca55;
+}
+
+.calc-pod-header {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.fig-img {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.price-itog {
+    display: inline-block;
+    animation-duration: 2s;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+}
+
+.text-muted-dark {
+    color: #484c50;
+}
+
+.btn-color {
+    background: #42ca55 !important;
+    color:#fff;
+    border:#42ca55 !important;
+    box-shadow: 0 5px #999;
+    display: inline-block;
+    font-weight: 400;
+    
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    }
+.btn-color:hover {
+    background: #1ea130 !important;
+    
+}
+
+.btn-color:active {
+    box-shadow: 0 3px #999;
+    transform: translateY(2px);
+
+}
+
+#price-itog {
+    font-weight: bold;
+    font-size: 30px;
+    color: #42ca55;
+    
+}
+
+#area-plus, #area-minus {
+    background: #42ca55 !important;
+    color:#fff;
+    border:#42ca55 !important;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+  
+}

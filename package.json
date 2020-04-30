@@ -14,12 +14,15 @@
     "gulp-autoprefixer": "^7.0.1",
     "gulp-concat": "^2.6.1",
     "gulp-imagemin": "^7.1.0",
+    "gulp-minify": "^3.1.0",
+    "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-terser": "^1.2.0",
     "node-sass": "^4.13.1"
   },
   "dependencies": {
+    "bootstrap-slider": "^10.6.2",
     "normalize.css": "^8.0.1"
   }
 }

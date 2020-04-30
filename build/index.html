@@ -3,21 +3,389 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/font-awesome.css">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style/normalize.css">
+    <link rel="stylesheet" href="./style/font-awesome.css">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style/normalize.css">
 
     <link rel="stylesheet" href="style/all.css">
+    <link rel="stylesheet" href="bootstrap-slider/css/bootstrap-slider.css">
+    <link rel="stylesheet" href="./style/animate.css">
     <title>Document</title>
 </head>
 <body>
     
-<p><i class="fa fa-bullhorn"></i>Ghbdtn</p>
+<div class="main">
+    <div class="container pt-5">
+        <div class="row">
+           <div id="calc" class="col-md-7">
+               <h2>Калькулятор стоимости газона</h2>
+               
+                <form>
+                    <!-- Блок ввода площади -->
+                    <div class="input-group mb-5 mt-5">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Площадь участка (м<sup>2</sup>)</span>
+                        </div>
+                        <button id="area-plus" type="button" class="">+</button>
+                        <input type="text" class="form-control col-12" name="total_area" id="total_area" max="2000" value="0" onchange="rangeinput1.value = total_area.value" />
+                        <button id="area-minus" type="button" class="">-</button>
+                        <input type="range" oninput="total_area.value = rangeinput1.value" class="mt-3 form-control-range slider col-12" type="range" min="1" max="2000" value="0" id="rangeinput1" step="1" onchange="total_area.value = rangeinput1.value" >
+                    </div>
+                    <!-- Конец блока ввода площади -->
+
+                    
+                    <p class="calc-pod-header">Выберите тип газона</p>
+
+                    <!-- Блок выбора типа газона -->
+                    <ul class="nav nav-tabs mb-5" id="category-gazon-type" role="tablist">
+                        <li class="nav-item col-12 col-md-6">
+                          <a class="nav-link active rul-tab-item" id="rul-tab" data-toggle="tab" href="#rul" role="tab" aria-controls="rul" aria-selected="true">Рулонный</a>
+                        </li>
+                        <li class="nav-item col-12 col-md-6">
+                          <a class="nav-link rul-tab-item" id="posev-tab" data-toggle="tab" href="#posev" role="tab" aria-controls="posev" aria-selected="false">Посевной</a>
+                        </li>
+                        
+                    </ul>
+                    <!-- Конец блока выбора типа газона -->
+
+                    <div class="tab-content" id="category-rul">
+                        <div class="tab-pane fade show active" id="rul" role="tabpanel" aria-labelledby="rul-tab">
+
+                    <p class="calc-pod-header">Выберите подтип</p>
+
+                    <!-- Выбор подтипа в рулонном газоне -->
+
+
+                                <!-- Заголовки подтипов рулонного газона -->
+                                <ul class="nav nav-tabs mb-5" id="category-rul-gazon-type" role="tablist">
+                                    <li class="nav-item col-12 col-md-6">
+                                        <a class="nav-link active" id="rul-univers-tab" data-toggle="tab" href="#rul-univers" role="tab" aria-controls="rul-univers" aria-selected="true">
+                                            <figure class="text-center">
+                                                <img class="mb-2" src="./img/rul-gazon-univers-img.png">
+                                                <figcaption>Универсальный</figcaption>
+                                            </figure>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item col-12 col-md-6">
+                                        <a class="nav-link" id="rul-elit-tab" data-toggle="tab" href="#rul-elit" role="tab" aria-controls="rul-elit" aria-selected="false">
+                                            <figure class="text-center">
+                                                <img class="mb-2" src="./img/rul-gazon-elit-img.png">
+                                                <figcaption>Элитный</figcaption>
+                                            </figure>
+                                        </a>
+                                    </li>
+                                
+                                </ul>
+
+                                <!-- Вкладки подтипов рулонного газона -->
+                                <div class="tab-content" id="category-rul-podtype">
+
+                                    <!-- Вкладка универсальный в рулонном газоне -->
+                                    <div class="tab-pane fade show active" id="rul-univers" role="tabpanel" aria-labelledby="rul-univers-tab">
+                                        <p class="calc-pod-header">Укажите дополнительные данные (отметьте нужные пункты)</p>
+                                        
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="rul-univers-du">
+                                          <label class="form-check-label" for="rul-univers-du">
+                                            Доставка: + 50 руб/м<sup>2</sup>
+                                          </label>
+                                        </div>
+
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="rul-univers-ukl">
+                                          <label class="form-check-label" for="rul-univers-ukl">
+                                            Укладка: + 160 руб/м<sup>2</sup>
+                                          </label>
+                                        </div>
+
+                                        <div class="form-check mb-3">
+                                          <input class="form-check-input" type="checkbox" value="" id="rul-univers-pp">
+                                          <label class="form-check-label" for="rul-univers-pp">
+                                            Подготовка поверхности: + 50 руб/м<sup>2</sup>
+                                          </label>
+                                        </div>
+
+                                        <div class="form-group">
+                                          <label for="rul-univers-podushka-height">Высота песчаной подушки</label>
+                                          <input type="number" min="1" id="rul-univers-podushka-height" class="form-control" aria-describedby="numberHelpInline" placeholder="Введите значение (в см.)">              
+                                          <small id="numberHelpInline" class="text-muted-dark">
+                                            * Простейшим дренажом при устройстве газона является песчаная подушка под плодородным слоем.
+                                            Песок помогает отводить лишнюю воду из корнеобитаемого слоя земли (для дренажа стандартный
+                                            слой песчаной подушки 5-10 см)
+                                          </small>
+                                        </div>
+
+                                        <div class="form-group">
+                                          <label for="rul-univers-grunt-height">Высота досыпки плодородного грунта</label>
+                                          <input type="number" min="0" id="rul-univers-grunt-height" class="form-control" placeholder="Введите значение (в см.)">
+                                          
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Вкладка элитный в рулонном газоне -->
+                                    <div class="tab-pane fade" id="rul-elit" role="tabpanel" aria-labelledby="rul-elit-tab">
+
+                                        <p class="calc-pod-header">Укажите дополнительные данные (отметьте нужные пункты)</p>
+
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="rul-elit-du">
+                                          <label class="form-check-label" for="rul-elit-du">
+                                            Доставка: + 70 руб/м<sup>2</sup>
+                                          </label>
+                                        </div>
+
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="rul-elit-ukl">
+                                          <label class="form-check-label" for="rul-elit-uld">
+                                            Укладка: + 160 руб/м<sup>2</sup>
+                                          </label>
+                                        </div>
+
+                                        <div class="form-check mb-3">
+                                          <input class="form-check-input" type="checkbox" value="" id="rul-elit-pp">
+                                          <label class="form-check-label" for="rul-elit-pp">
+                                            Подготовка поверхности: + 50 руб/м<sup>2</sup>
+                                          </label>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                          <label for="rul-elit-podushka-height">Высота песчаной подушки</label>
+                                          <input type="number" min="0" id="rul-elit-podushka-height" class="form-control" aria-describedby="numberHelpInline" placeholder="Введите значение (в см.)">              
+                                          <small class="text-muted-dark">
+                                            * Простейшим дренажом при устройстве газона является песчаная подушка под плодородным слоем.
+                                            Песок помогает отводить лишнюю воду из корнеобитаемого слоя земли (для дренажа стандартный
+                                            слой песчаной подушки 5-10 см)
+                                          </small>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                          <label for="rul-elit-grunt-height">Высота досыпки плодородного грунта</label>
+                                          <input type="number" min="0" id="rul-elit-grunt-height" class="form-control" placeholder="Введите значение (в см.)">
+                                          
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
+                    <!-- Конец выбора подтипа рулонного газона -->
 
 
 
+                        </div>
+
+                    <!-- Выбор подтипа посевного газона -->
+
+                        <div class="tab-pane fade" id="posev" role="tabpanel" aria-labelledby="posev-tab">
+						
+                        <p>Выберите подтип</p>
+                            <div class="row">
+
+                            <!-- Заголовки подтипа посевного газона -->
+                                <ul class="nav nav-tabs mb-5" style="width: 100%; margin: 0 15px;" id="category-posev-gazon-type" role="tablist">
+                                        <li class="nav-item col-12 col-lg-3">
+                                            <a class="nav-link active" id="posev-univers-tab" data-toggle="tab" href="#posev-univers" role="tab" aria-controls="posev-univers" aria-selected="true">
+                                                <figure class="text-center">
+                                                    <img src="./img/gazon-posev-univers.png">
+                                                    <figcaption>Универсальный</figcaption>
+                                                </figure>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item col-12 col-lg-3">
+                                        <a class="nav-link" id="posev-elit-tab" data-toggle="tab" href="#posev-elit" role="tab" aria-controls="posev-elit" aria-selected="false">
+                                            <figure class="text-center">
+                                                <img src="./img/gazon-posev-elit.png">
+                                                <figcaption>Элитный</figcaption>
+                                            </figure>
+                                        </a>
+                                        </li>
+                                        
+                                        <li class="nav-item col-12 col-lg-3">
+                                        <a class="nav-link" id="posev-prem-tab" data-toggle="tab" href="#posev-prem" role="tab" aria-controls="posev-prem" aria-selected="false">
+                                            <figure class="text-center">
+                                                <img src="./img/gazon-posev-premium.png">
+                                                <figcaption>Премиальный</figcaption>
+                                            </figure>
+                                        </a>
+                                        </li>
+                                        
+                                        <li class="nav-item col-12 col-lg-3">
+                                        <a class="nav-link" id="posev-sport-tab" data-toggle="tab" href="#posev-sport" role="tab" aria-controls="posev-sport" aria-selected="false">
+                                            <figure class="text-center">
+                                                <img src="./img/gazon-posev-sport.png">
+                                                <figcaption>Спортивный</figcaption>
+                                            </figure>
+                                        </a>
+                                        </li>
+                                    
+                                </ul>
+
+                            <!-- Вкладки подтипа посевного газона -->
+
+                            <div class="tab-content" id="category-posev-podtype">
+
+                                <!-- Вкладка универсальный в посевном газоне газоне -->
+                                <div class="tab-pane fade show active" id="posev-univers" role="tabpanel" aria-labelledby="posev-univers-tab">
+                                    <p class="calc-pod-header">Укажите дополнительные данные (отметьте нужные пункты)</p>
+                                    
+                                    <div class="form-group">
+                                      <label for="posev-univers-podushka-height">Высота песчаной подушки</label>
+                                      <input type="number" min="0" id="posev-univers-podushka-height" class="form-control" aria-describedby="numberHelpInline" placeholder="Введите значение (в см.)">              
+                                      <small class="text-muted-dark">
+                                        * Простейшим дренажом при устройстве газона является песчаная подушка под плодородным слоем.
+                                        Песок помогает отводить лишнюю воду из корнеобитаемого слоя земли (для дренажа стандартный
+                                        слой песчаной подушки 5-10 см)
+                                      </small>
+                                    </div>
+
+                                    <div class="form-group">
+                                      <label for="posev-univers-grunt-height">Высота досыпки плодородного грунта</label>
+                                      <input type="number" min="0" id="posev-univers-grunt-height" class="form-control" placeholder="Введите значение (в см.)">
+                                      
+                                    </div>
+
+                                </div>
+
+                                <!-- Вкладка элитный в посевном газоне -->
+                                <div class="tab-pane fade" id="posev-elit" role="tabpanel" aria-labelledby="posev-elit-tab">
+
+                                    <p>Укажите дополнительные данные (отметьте нужные пункты)</p>
+                                    
+                                    <div class="form-group">
+                                      <label for="posev-elit-podushka-height">Высота песчаной подушки</label>
+                                      <input type="number" min="0" id="posev-elit-podushka-height" class="form-control" aria-describedby="numberHelpInline" placeholder="Введите значение (в см.)">              
+                                      <small class="text-muted-dark">
+                                        * Простейшим дренажом при устройстве газона является песчаная подушка под плодородным слоем.
+                                        Песок помогает отводить лишнюю воду из корнеобитаемого слоя земли (для дренажа стандартный
+                                        слой песчаной подушки 5-10 см)
+                                      </small>
+                                    </div>
+
+                                    <div class="form-group">
+                                      <label for="posev-elit-grunt-height">Высота досыпки плодородного грунта</label>
+                                      <input type="number" min="0" id="posev-elit-grunt-height" class="form-control" placeholder="Введите значение (в см.)">
+                                      
+                                    </div>
+                                </div>
+
+                                <!-- Вкладка премиальный в посевном газоне -->
+                                <div class="tab-pane fade" id="posev-prem" role="tabpanel" aria-labelledby="posev-prem-tab">
+
+                                    <p>Укажите дополнительные данные (отметьте нужные пункты)</p>
+                                    
+                                    <div class="form-group">
+                                      <label for="posev-prem-podushka-height">Высота песчаной подушки</label>
+                                      <input type="number" min="0" id="posev-prem-podushka-height" class="form-control" aria-describedby="numberHelpInline" placeholder="Введите значение (в см.)">              
+                                      <small class="text-muted-dark">
+                                        * Простейшим дренажом при устройстве газона является песчаная подушка под плодородным слоем.
+                                        Песок помогает отводить лишнюю воду из корнеобитаемого слоя земли (для дренажа стандартный
+                                        слой песчаной подушки 5-10 см)
+                                      </small>
+                                    </div>
+
+                                    <div class="form-group">
+                                      <label for="posev-prem-grunt-height">Высота досыпки плодородного грунта</label>
+                                      <input type="number" min="0" id="posev-prem-grunt-height" class="form-control" placeholder="Введите значение (в см.)">
+                                      
+                                    </div>
+                                </div>
+
+                                <!-- Вкладка спортивный в посевном газоне -->
+                                <div class="tab-pane fade" id="posev-sport" role="tabpanel" aria-labelledby="posev-prem-tab">
+
+                                    <p>Укажите дополнительные данные (отметьте нужные пункты)</p>
+                                    
+                                    <div class="form-group">
+                                      <label for="posev-univers-sport-height">Высота песчаной подушки</label>
+                                      <input type="number" min="0" id="posev-sport-podushka-height" class="form-control" aria-describedby="numberHelpInline" placeholder="Введите значение (в см.)">              
+                                      <small class="text-muted-dark">
+                                        * Простейшим дренажом при устройстве газона является песчаная подушка под плодородным слоем.
+                                        Песок помогает отводить лишнюю воду из корнеобитаемого слоя земли (для дренажа стандартный
+                                        слой песчаной подушки 5-10 см)
+                                      </small>
+                                    </div>
+
+                                    <div class="form-group">
+                                      <label for="posev-sport-grunt-height">Высота досыпки плодородного грунта</label>
+                                      <input type="number" min="0" id="posev-sport-grunt-height" class="form-control" placeholder="Введите значение (в см.)">
+                                      
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+
+                            </div>
+						</div>
+                        
+                    </div>
+
+                    
+                      
+                </form>
+           </div>
+
+           <div class="col-md-5">
+               
+
+               <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Услуга</th>
+                    <th scope="col">Описание</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr id="rulon-count">
+                    <th scope="row">Количество рулонов</th>
+                    <td id="result-rulon-count">-</td>
+                   
+                   
+                  </tr>
+
+                  <tr id="semyana-block" class="d-none">
+                    <th scope="row">Вес семян</th>
+                    <td id="result-semyana-count">-</td>
+                   
+                   
+                  </tr>
+                  <tr id="rulon-weight">
+                    <th scope="row">Общая масса рулонного газона</th>
+                    <td id="result-rulon-weight-count">-</td>
+                    
+                  </tr>
+                  <tr>
+                    <th scope="row">Устройство песчаной подушки</th>
+                    <td id="result-pp-price-count">-</td>
+                    
+                  </tr>
+
+                  <tr>
+                    <th scope="row">Устройство плодородного грунта</th>
+                    <td id="result-pg-price-count">-</td>
+                    
+                  </tr>
+                </tbody>
+              </table>
+              
+              <button type="submit" id="result-button" class="col-12 btn-color mb-5" onclick="result_table_update()">Рассчитать</button>
+
+              <h2>Итоговый расчет</h2>
+
+               <p>Стоимость: <span id="price-itog"></span> руб.</p>
+           </div>
+        </div>
+    </div>
+</div>
+
+
+    
     <script src="js/jquery-3.4.1.js"></script>
     <script src="js/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap-slider/bootstrap-slider.js"></script>
+    <script src="js/calc.js"></script>
 </body>
 </html>
